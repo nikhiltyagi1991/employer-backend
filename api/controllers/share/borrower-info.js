@@ -29,6 +29,10 @@ module.exports = {
             statusCode: 200,
             description: "Info sent successfully"
         },
+        invalidRequest: {
+            statusCode: 400,
+            description: 'Consent not provided'
+        },
         errorInSending: {
             statusCode: 409,
             description: "Third party conflict"
@@ -37,8 +41,13 @@ module.exports = {
 
 
     fn: async function (inputs, exits) {
+        if (!consent) {
+            exits.invalidRequest({ message: 'Consent not provided.' });
+        }
+
         let userInfo = this.req.me
         delete userInfo['password'];
+        userInfo.applicationNo = inputs.applicationNo;
 
         const options = {
             url: inputs.brokerAddress,
