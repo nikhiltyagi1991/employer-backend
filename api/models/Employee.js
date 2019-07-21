@@ -32,6 +32,15 @@ module.exports = {
         address: {
             type: 'string',
             description: 'address of the employee'
+        },
+        salary: {
+            type: 'number',
+            description: 'salary of the employee'
+        },
+        dateOfJoining: {
+            type: 'ref',
+            columnType: 'datetime',
+            description: 'joining date of the employee'
         }
 
 
