@@ -40,7 +40,7 @@ module.exports = {
     },
 
 
-    fn: async function (inputs) {
+    fn: async function (inputs, exits) {
         if (inputs.employeeId !== this.req.me.employeeId)
             return exits.incorrect({ message: 'Employee id incorrect' })
 
@@ -48,14 +48,14 @@ module.exports = {
             let response = await axios.post(inputs.urlMBR + '/confirmation/employment', {
                 mortId: inputs.mortId,
                 employeeId: this.req.me.employeeId,
-                employeeName: this.req.me.name,
+                name: this.req.me.name,
                 address: this.req.me.address,
                 salary: this.req.me.salary,
                 yearsOfEmployment: (this.req.me.dateOfJoining - new Date())
             });
-            return this.exits.incorrect({ message: 'Request sent.' })
+            return exits.incorrect({ message: 'Request sent.' })
         } catch (err) {
-            return this.exits.incorrect({ message: 'Error in submitting profile to broker.' })
+            return exits.incorrect({ message: 'Error in submitting profile to broker.' })
         }
     }
 

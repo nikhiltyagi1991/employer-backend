@@ -30,6 +30,14 @@ module.exports = {
         address: {
             type: "string",
             description: "Type in address of employee."
+        },
+        salary: {
+            type: 'number',
+            description: 'Salary in dollars'
+        },
+        joiningDate: {
+            type: 'number',
+            description: 'This is an epoch date'
         }
     },
 
