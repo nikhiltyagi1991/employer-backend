@@ -68,7 +68,7 @@ module.exports = {
             res.on('end', () => {
                 let resp = JSON.parse(response);
                 if (res.statusCode === 200) {
-                    return exits.errorInSending({ message: 'Successfully sent information to borrower.' })
+                    return exits.success({ message: 'Successfully sent information to borrower.' })
                 }
             });
         });

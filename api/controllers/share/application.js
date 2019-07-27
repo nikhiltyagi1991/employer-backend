@@ -53,7 +53,7 @@ module.exports = {
                 salary: this.req.me.salary,
                 yearsOfEmployment: (this.req.me.dateOfJoining - new Date())
             });
-            return exits.incorrect({ message: 'Request sent.' })
+            return exits.success({ message: 'Request sent.' })
         } catch (err) {
             return exits.incorrect({ message: 'Error in submitting profile to broker.' })
         }
