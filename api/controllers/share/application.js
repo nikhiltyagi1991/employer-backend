@@ -55,7 +55,7 @@ module.exports = {
             });
             return exits.success({ message: 'Request sent.' })
         } catch (err) {
-            return exits.incorrect({ message: 'Error in submitting profile to broker.' })
+            return exits.incorrect({ message: 'Error in submitting profile to broker. Error: ' + err.message })
         }
     }
 
