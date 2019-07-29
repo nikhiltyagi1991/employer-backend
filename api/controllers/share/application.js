@@ -44,6 +44,12 @@ module.exports = {
         if (inputs.employeeId !== this.req.me.employeeId)
             return exits.incorrect({ message: 'Employee id incorrect' })
 
+
+        var doj = this.req.me.dateOfJoining;
+        var now = new Date();
+        var years = (now - doj);
+        years = Math.abs(years / 31557600000);
+
         try {
             let response = await axios.post(inputs.urlMBR + '/confirmation/employment', {
                 mortId: inputs.mortId,
@@ -51,7 +57,7 @@ module.exports = {
                 name: this.req.me.name,
                 address: this.req.me.address,
                 salary: this.req.me.salary,
-                yearsOfEmployment: (this.req.me.dateOfJoining - new Date())
+                yearsOfEmployment: years
             });
             return exits.success({ message: 'Request sent.' })
         } catch (err) {

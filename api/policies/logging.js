@@ -4,7 +4,7 @@ module.exports = async function (req, res, proceed) {
     line = '\n######################## Request ####################\n';
     line += req.url + '\n' + req.method;
     line += '\n' + JSON.stringify(req._header);
-    line += '\n' + JSON.stringify(req.params);
+    line += '\n' + JSON.stringify(req.allParams());
     fs.appendFile(logfile, line, () => { proceed(); });
 
     // https://stackoverflow.com/a/19215370

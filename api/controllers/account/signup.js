@@ -70,7 +70,9 @@ module.exports = {
         let registerUser = {
             employeeId: inputs.employeeId,
             name: inputs.name,
-            password: hash.digest("hex")
+            password: hash.digest("hex"),
+            salary: inputs.salary,
+            dateOfJoining: inputs.joiningDate
         };
 
         Object.assign(registerUser, inputs.address ? { address: inputs.address } : null)
