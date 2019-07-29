@@ -122,6 +122,7 @@ nbproject
 .idea
 .node_history
 dump.rdb
+logs.txt
 
 npm-debug.log
 lib-cov
