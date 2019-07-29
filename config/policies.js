@@ -20,5 +20,6 @@ module.exports.policies = {
     // '*': true,
     'account/*': true,
     '*': 'logged-in',
+    '*': 'logging'
 
 };
